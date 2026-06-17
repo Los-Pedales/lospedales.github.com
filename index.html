@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peña Los Pedales - Concurso de Paellas 2026</title>
-    <!-- Cargando la tipografía Montserrat desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
@@ -25,7 +24,6 @@
             background-color: var(--color-fondo);
             color: var(--color-texto);
             overflow-x: hidden;
-            /* Fondo sutil con motivos de fuegos artificiales simulados */
             background-image: 
                 radial-gradient(circle at 20% 30%, rgba(255, 165, 2, 0.1) 1px, transparent 1px),
                 radial-gradient(circle at 75% 60%, rgba(255, 71, 87, 0.1) 2px, transparent 2px),
@@ -33,7 +31,7 @@
             background-size: 100px 100px;
         }
 
-        /* Guirnalda de Banderitas de Colores (Top de la página) */
+        /* Guirnalda de Banderitas de Colores */
         .banderitas {
             display: flex;
             justify-content: space-around;
@@ -67,6 +65,21 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background-color: var(--color-secundario);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.9rem;
+            border: 4px solid white;
+            box-shadow: 0 0 20px rgba(255, 165, 2, 0.6);
+        }
+
         header h1 {
             font-size: 3.5rem;
             font-weight: 900;
@@ -93,7 +106,7 @@
             position: relative;
         }
 
-        /* Sección Palmarés (Texto Resaltado) */
+        /* Sección Palmarés */
         .palmares-container {
             background: white;
             padding: 2.5rem;
@@ -101,7 +114,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             margin-bottom: 3rem;
             border: 3px dashed var(--color-secundario);
-            position: relative;
         }
 
         .palmares-list {
@@ -112,7 +124,7 @@
 
         .palmares-list li {
             font-size: 1.4rem;
-            font-weight: 700; /* Montserrat Bold */
+            font-weight: 700;
             margin-bottom: 1.2rem;
             padding-left: 2.5rem;
             position: relative;
@@ -120,7 +132,6 @@
             align-items: center;
         }
 
-        /* Iconos temáticos simulados para la lista */
         .palmares-list li::before {
             position: absolute;
             left: 0;
@@ -157,7 +168,6 @@
             line-height: 1.6;
         }
 
-        /* Desplegable */
         .selector-pedido {
             width: 100%;
             max-width: 450px;
@@ -172,11 +182,6 @@
             margin-bottom: 2rem;
             cursor: pointer;
             outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .selector-pedido:focus {
-            border-color: var(--color-principal);
         }
 
         /* Botón de Envío */
@@ -191,17 +196,26 @@
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(46, 213, 115, 0.4);
-            transition: transform 0.2s, background-color 0.2s;
+            transition: all 0.2s;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .btn-enviar:hover {
+        .btn-enviar:hover:not(:disabled) {
             background-color: #26af5f;
             transform: translateY(-2px);
         }
 
-        /* Elementos Decorativos de la Fiesta del Pueblo */
+        /* Estilo para el botón cuando ya está desactivado */
+        .btn-enviar:disabled {
+            background-color: #a4b0be;
+            color: #f1f2f6;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Elementos Decorativos */
         .decoracion-fiesta {
             display: flex;
             justify-content: center;
@@ -218,7 +232,6 @@
             border-radius: 50%;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             display: inline-block;
-            cursor: default;
         }
 
         /* Ventana Emergente (Pop-up) */
@@ -228,7 +241,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.75); /* Negro Semitransparente */
+            background-color: rgba(0, 0, 0, 0.75);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -277,27 +290,18 @@
 </head>
 <body>
 
-    <!-- Guirnalda de banderitas superiores -->
     <div class="banderitas">
-        <div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div>
         <div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div>
         <div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div>
     </div>
 
-    <!-- Banner Cabecera -->
     <header>
-        <!-- Espacio para la imagen "logo pedales" -->
-        <div class="logo-placeholder">
-          <img src="Logo pedales.png" alt="Logo Los Pedales" class="logo">
-        </div>
+        <div class="logo-placeholder">[ LOGO PEDALES ]</div>
         <h1>Los Pedales</h1>
         <span class="baseline">Campeones de peñas 2025</span>
     </header>
 
-    <!-- Contenido Principal -->
     <main>
-
-        <!-- Palmarés de la peña -->
         <section class="palmares-container">
             <ul class="palmares-list">
                 <li>Mejor paella 2024</li>
@@ -308,35 +312,27 @@
             </ul>
         </section>
 
-        <!-- Sección Pedido de Prueba -->
         <section class="pedido-container">
             <p class="pedido-titulo">¿Quieres hacer un pedido de prueba para degustar nuestra única e inimitable paella de marisco?</p>
-            
             <p class="pedido-descripcion">Escoge fecha y hora de entrega y uno de nuestros repartidores te entregará tu pedido para que puedas disfrutar de esta experiencia organoléptica</p>
             
-            <!-- Desplegable con única opción -->
             <select class="selector-pedido" id="fechaEntrega">
                 <option value="unico">Jueves 20 de agosto, 14:40 h. Parque de los Alambraos</option>
             </select>
             
             <br>
-            
-            <!-- Botón de Envío -->
             <button class="btn-enviar" id="btnEnviar">ENVIAR MI PEDIDO</button>
         </section>
 
-        <!-- Elementos decorativos alegóricos de las fiestas de pueblo -->
         <div class="decoracion-fiesta">
             <div class="elemento-decorativo" title="Charanga">🎺</div>
-            <div class="elemento-decorativo" title="Tractor con remolque y flores">🚜💐</div>
-            <div class="elemento-decorativo" title="Dama de fiesta (Baturra)">👑</div>
-            <div class="elemento-decorativo" title="Vasos de cerveza">🍻</div>
-            <div class="elemento-decorativo" title="Fuegos artificiales">🎆</div>
+            <div class="elemento-decorativo" title="Tractor">🚜💐</div>
+            <div class="elemento-decorativo" title="Baturra">👑</div>
+            <div class="elemento-decorativo" title="Cerveza">🍻</div>
+            <div class="elemento-decorativo" title="Fuegos">🎆</div>
         </div>
-
     </main>
 
-    <!-- Pop-up Semitransparente (Modal) -->
     <div class="modal-overlay" id="modalPedido">
         <div class="modal-content">
             <p>Muchas gracias! Entregaremos tu pedido de prueba en la fecha y dirección escogidos!</p>
@@ -344,29 +340,46 @@
         </div>
     </div>
 
-    <!-- Lógica de funcionamiento del Pop-up -->
     <script>
         const btnEnviar = document.getElementById('btnEnviar');
         const btnCerrar = document.getElementById('btnCerrar');
         const modal = document.getElementById('modalPedido');
+        const selector = document.getElementById('fechaEntrega');
+
+        // Función para bloquear el botón si ya se hizo el pedido
+        function verificarPedidoRealizado() {
+            if (localStorage.getItem('pedidoRealizado') === 'true') {
+                btnEnviar.innerText = '¡GRACIAS!';
+                btnEnviar.disabled = true;
+                selector.disabled = true; // También bloqueamos el desplegable por coherencia
+            }
+        }
+
+        // Comprobamos el estado nada más cargar la página
+        verificarPedidoRealizado();
 
         // Al pulsar el botón ENVIAR
         btnEnviar.addEventListener('click', () => {
+            // Guardamos en la memoria del navegador que ya ha pedido
+            localStorage.setItem('pedidoRealizado', 'true');
+            
+            // Mostramos el pop-up
             modal.classList.add('active');
+            
+            // Aplicamos los cambios visuales de bloqueo al botón inmediatamente
+            verificarPedidoRealizado();
         });
 
-        // Al pulsar el botón cerrar del Pop-up
+        // Al pulsar cerrar en el Pop-up
         btnCerrar.addEventListener('click', () => {
             modal.classList.remove('active');
         });
 
-        // Cerrar también si se hace clic fuera del recuadro negro
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
             }
         });
     </script>
-
 </body>
 </html>
