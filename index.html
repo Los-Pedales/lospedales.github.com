@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Pedales - Campeones de peñas 2025</title>
+    <!-- Importar tipografía Montserrat Bold -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            background-color: #fff9f0;
+            color: #333;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Elementos decorativos (Fiesta de pueblo) */
+        .decor {
+            position: absolute;
+            font-size: 3.5rem;
+            z-index: 0;
+            opacity: 0.7;
+            user-select: none;
+        }
+        .banderitas { top: 0; left: 0; width: 100%; text-align: center; font-size: 2.5rem; letter-spacing: 20px; white-space: nowrap; overflow: hidden; margin-top: 10px; }
+        .fuegos1 { top: 15%; left: 5%; }
+        .fuegos2 { top: 60%; right: 8%; }
+        .cervezas1 { top: 25%; right: 10%; }
+        .cervezas2 { top: 80%; left: 10%; }
+        .charanga { top: 40%; left: 8%; }
+        .tractor { top: 70%; right: 15%; }
+        .baturra { top: 50%; right: 5%; }
+        .baturra2 { top: 35%; left: 15%; }
+
+        /* Contenedor principal */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Banner cabecera */
+        header { margin-bottom: 40px; }
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+            filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.1));
+        }
+        h1 {
+            font-size: 3.5rem;
+            color: #e65c00;
+            margin: 10px 0 0 0;
+            text-transform: uppercase;
+        }
+        .baseline {
+            font-size: 1.5rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* Texto resaltado (Premios) */
+        .premios-box {
+            background-color: #ffffff;
+            border: 4px dashed #e65c00;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 500px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .premios-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #222;
+        }
+        .premios-list li {
+            padding-left: 35px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .premios-list li::before {
+            content: "🏆";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Sección de Pedido */
+        .pedido-section {
+            background-color: #ffe6cc;
+            padding: 40px 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        .pedido-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        select {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 15px;
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid #e65c00;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            appearance: none;
+            text-align: center;
+        }
+        button {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            background-color: #e65c00;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(230, 92, 0, 0.4);
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background-color: #cc5200;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 92, 0, 0.6);
+        }
+
+        /* Pop-up modal */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        #popup.show { display: flex; }
+        .popup-text {
+            color: white;
+            font-size: 2.5rem;
+            max-width: 800px;
+            line-height: 1.4;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .baseline { font-size: 1.2rem; }
+            .premios-list { font-size: 1.1rem; }
+            .popup-text { font-size: 1.8rem; }
+            .decor { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Elementos decorativos (Fiesta de pueblo) -->
+    <div class="decor banderitas">🎏 🚩 🎊 🚩 🎏 🎊 🚩 🎏 🎊</div>
+    <div class="decor fuegos1">🎆</div>
+    <div class="decor cervezas1">🍻</div>
+    <div class="decor baturra2">💃</div>
+    <div class="decor charanga">🎺🥁🎷</div>
+    <div class="decor baturra">💃</div>
+    <div class="decor fuegos2">🎇</div>
+    <div class="decor tractor">🚜🌺</div>
+    <div class="decor cervezas2">🍺</div>
+
+    <div class="container">
+        <!-- Banner cabecera -->
+        <header>
+            <img src="Logo pedales.png" alt="Logo Los Pedales" class="logo">
+            <h1>Los Pedales</h1>
+            <div class="baseline">Campeones de peñas 2025</div>
+        </header>
+
+        <!-- Texto resaltado (Premios) -->
+        <section class="premios-box">
+            <ul class="premios-list">
+                <li>Mejor paella 2024</li>
+                <li>Segunda mejor paella 2025</li>
+                <li>Segundo mejor mojito 2024</li>
+                <li>Mejor mojito 2025</li>
+                <li>Mejor tortilla de patata 2025</li>
+            </ul>
+        </section>
+
+        <!-- Sección de Pedido -->
+        <section class="pedido-section">
+            <p class="pedido-text">
+                ¿Quieres hacer un pedido de prueba para degustar nuestra única e inimitable paella de marisco?<br><br>
+                Escoge fecha y hora de entrega y uno de nuestros repartidores te entregará tu pedido para que puedas disfrutar de esta experiencia organoléptica
+            </p>
+            
+            <select name="fecha_entrega" id="fecha_entrega">
+                <option value="opcion1">Jueves 20 de agosto, 14:40 h. Parque de los Alambraos</option>
+            </select>
+            <br>
+            <button id="btnEnviar">ENVIAR MI PEDIDO</button>
+        </section>
+    </div>
+
+    <!-- Pop up (Modal) -->
+    <div id="popup">
+        <div class="popup-text">
+            Muchas gracias! Entregaremos tu pedido de prueba en la fecha y dirección escogidos!
+        </div>
+    </div>
+
+    <!-- Interacción para el botón -->
+    <script>
+        document.getElementById('btnEnviar').addEventListener('click', function() {
+            var popup = document.getElementById('popup');
+            popup.classList.add('show');
+            
+            // Cierra el pop-up al hacer clic sobre él (opcional pero muy recomendado para UX)
+            popup.addEventListener('click', function() {
+                popup.classList.remove('show');
+            });
+        });
+    </script>
+
+</body>
+</html>
