@@ -3,125 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peña Los Pedales - Concurso de Paellas 2026</title>
-    <!-- Cargando la tipografía Montserrat desde Google Fonts -->
+    <title>Los Pedales - Fast Paella Delivery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
     
     <style>
-        /* Estilos Generales y Temática de Fiesta */
+        /* ESTILO NEO-BRUTALISTA / FAST FOOD MODERNO */
         :root {
-            --color-principal: #ff4757;
-            --color-secundario: #ffa502;
-            --color-fondo: #f1f2f6;
-            --color-texto: #2f3542;
+            --color-ketchup: #FF2A2A;
+            --color-mostaza: #FFC300;
+            --color-crema: #FFF8E7;
+            --color-negro: #111111;
+            --borde-grueso: 4px solid var(--color-negro);
+            --sombra-dura: 8px 8px 0px var(--color-negro);
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
+            background-color: var(--color-crema);
+            color: var(--color-negro);
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 165, 2, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 75% 60%, rgba(255, 71, 87, 0.1) 2px, transparent 2px),
-                radial-gradient(circle at 50% 15%, rgba(46, 213, 115, 0.1) 1.5px, transparent 1.5px);
-            background-size: 100px 100px;
+            /* Patrón sutil de cuadrícula de mantel de restaurante */
+            background-image: radial-gradient(var(--color-negro) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
-        /* Guirnalda de Banderitas de Colores */
-        .banderitas {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            height: 35px;
-            background: transparent;
-            position: absolute;
-            top: 0;
-            z-index: 10;
+        /* Tira de ofertas tipo marquesina de restaurante */
+        .marquesina {
+            background-color: var(--color-negro);
+            color: var(--color-mostaza);
+            padding: 10px 0;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-bottom: var(--borde-grueso);
+            position: relative;
         }
 
-        .banderita {
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 30px solid var(--color-principal);
+        .marquesina div {
+            display: inline-block;
+            animation: scroll 15s linear infinite;
         }
-        .banderita:nth-child(2n) { border-top-color: #ffa502; }
-        .banderita:nth-child(3n) { border-top-color: #2ed573; }
-        .banderita:nth-child(4n) { border-top-color: #1e90ff; }
-        .banderita:nth-child(5n) { border-top-color: #9b59b6; }
 
-        /* Banner Cabecera */
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Cabecera Fast Food */
         header {
-            background: linear-gradient(135deg, #1e272e 0%, #2f3542 100%);
+            background-color: var(--color-ketchup);
             color: white;
             text-align: center;
-            padding: 5rem 1rem 3rem 1rem;
+            padding: 3rem 1rem 4rem 1rem;
+            border-bottom: var(--borde-grueso);
             position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* NUEVO Contenedor del Logo CUADRADO (200x200px) */
+        /* Contenedor del Logo */
         .logo-container {
-            width: 200px;
-            height: 200px;
-            border-radius: 12px; /* Esquinas ligeramente suaves, ya no es un círculo */
+            width: 180px;
+            height: 180px;
             margin: 0 auto 1.5rem auto;
-            overflow: hidden;
-            border: 3px solid white;
-            background-color: rgba(254, 164, 2, 0.1); /* Fondo sutil para el PNG transparente */
+            background-color: white;
+            border: var(--borde-grueso);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: var(--sombra-dura);
+            overflow: hidden;
+            transform: rotate(-5deg); /* Toque rebelde */
+            transition: transform 0.3s ease;
         }
 
-        /* Imagen del Logo Ajustada al Cuadrado */
+        .logo-container:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
         .logo-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Ajusta la imagen completa sin deformar ni recortar */
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             font-weight: 900;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 0px var(--color-principal);
+            letter-spacing: -2px;
+            line-height: 1;
+            text-shadow: 4px 4px 0px var(--color-negro);
         }
 
         .baseline {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-secundario);
-            margin-top: 0.5rem;
-            display: block;
+            font-weight: 900;
+            color: var(--color-mostaza);
+            background-color: var(--color-negro);
+            display: inline-block;
+            padding: 5px 15px;
+            margin-top: 1rem;
             text-transform: uppercase;
+            border: 2px solid white;
+            transform: rotate(2deg);
         }
 
         /* Contenedor Principal */
         main {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
+            margin: -2rem auto 2rem auto; /* Sube un poco para superponerse */
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Sección Palmarés convertida en "Menú Board" */
+        .palmares-container {
+            background-color: var(--color-mostaza);
+            padding: 2.5rem;
+            border: var(--borde-grueso);
+            box-shadow: var(--sombra-dura);
+            margin-bottom: 3rem;
             position: relative;
         }
 
-        /* Sección Palmarés */
-        .palmares-container {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 3rem;
-            border: 3px dashed var(--color-secundario);
+        .palmares-titulo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 4px dashed var(--color-negro);
+            padding-bottom: 10px;
         }
 
         .palmares-list {
@@ -131,156 +153,153 @@
         }
 
         .palmares-list li {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            padding-left: 2.5rem;
-            position: relative;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            padding: 10px 15px;
+            background-color: white;
+            border: 3px solid var(--color-negro);
             display: flex;
             align-items: center;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 0px var(--color-negro);
         }
 
-        .palmares-list li::before {
-            position: absolute;
-            left: 0;
-            font-size: 1.6rem;
+        .palmares-list li span {
+            margin-right: 15px;
+            font-size: 1.8rem;
         }
-        .palmares-list li:nth-child(1)::before { content: "🥘"; }
-        .palmares-list li:nth-child(2)::before { content: "🥘"; }
-        .palmares-list li:nth-child(3)::before { content: "🍹"; }
-        .palmares-list li:nth-child(4)::before { content: "🍹"; }
-        .palmares-list li:nth-child(5)::before { content: "🍳"; }
 
-        /* Sección Formulario de Pedido */
+        /* Sección Formulario de Pedido tipo Kiosco/App */
         .pedido-container {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background-color: white;
+            padding: 3rem 2.5rem;
+            border: var(--borde-grueso);
+            box-shadow: var(--sombra-dura);
             text-align: center;
-            border-top: 5px solid var(--color-principal);
         }
 
         .pedido-titulo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--color-principal);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-ketchup);
+            margin-top: 0;
             margin-bottom: 1rem;
-            line-height: 1.4;
+            line-height: 1.1;
+            text-transform: uppercase;
         }
 
         .pedido-descripcion {
-            font-size: 1.1rem;
-            color: #57606f;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-negro);
             margin-bottom: 2rem;
-            line-height: 1.6;
         }
 
         .selector-pedido {
             width: 100%;
-            max-width: 450px;
-            padding: 12px 20px;
+            max-width: 500px;
+            padding: 15px 20px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            border: 2px solid #ced6e0;
-            border-radius: 10px;
-            background-color: #f8f9fa;
-            color: var(--color-texto);
-            margin-bottom: 2rem;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: var(--borde-grueso);
+            background-color: var(--color-crema);
+            color: var(--color-negro);
+            margin-bottom: 2.5rem;
             cursor: pointer;
-            outline: none;
+            appearance: none; /* Quita la flecha por defecto para hacerla más limpia */
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23111" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            box-shadow: 4px 4px 0px var(--color-negro);
         }
 
-        /* Botón de Envío */
+        /* Botón de Envío GIGANTE */
         .btn-enviar {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: 1.2rem;
-            background-color: #2ed573;
+            font-size: 1.8rem;
+            background-color: var(--color-ketchup);
             color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
+            border: var(--borde-grueso);
+            padding: 20px 40px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(46, 213, 115, 0.4);
-            transition: all 0.2s;
+            box-shadow: var(--sombra-dura);
+            transition: all 0.1s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            width: 100%;
+            max-width: 500px;
         }
 
-        .btn-enviar:hover:not(:disabled) {
-            background-color: #26af5f;
-            transform: translateY(-2px);
+        .btn-enviar:active:not(:disabled) {
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px var(--color-negro);
         }
 
         .btn-enviar:disabled {
-            background-color: #a4b0be;
-            color: #f1f2f6;
+            background-color: #ccc;
+            color: #666;
             cursor: not-allowed;
-            box-shadow: none;
-            transform: none;
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px var(--color-negro);
         }
 
-        /* NUEVOS Estilos globales para el Confeti */
-        .confetti {
-            position: fixed; /* Ahora cae relativo a toda la pantalla */
-            width: 12px;
-            height: 12px;
-            pointer-events: none;
-            z-index: 9999; /* Por encima de todo */
-            opacity: 0;
-            animation: confetti-fall 3s ease-out forwards;
-        }
-
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-50px) translateX(0) rotate(0deg);
-                opacity: 1;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(105vh) translateX(100px) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        /* Elementos Decorativos */
+        /* Elementos Decorativos "Stickers" */
         .decoracion-fiesta {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin-top: 3rem;
-            font-size: 2.5rem;
-            opacity: 0.8;
+            font-size: 3rem;
             flex-wrap: wrap;
         }
 
         .elemento-decorativo {
             background: white;
-            padding: 10px;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding: 15px;
+            border: var(--borde-grueso);
+            box-shadow: 4px 4px 0px var(--color-negro);
             display: inline-block;
+            transform: rotate(calc(-10deg + 20deg * var(--rand)));
+        }
+        
+        .elemento-decorativo:nth-child(1) { --rand: 0.2; }
+        .elemento-decorativo:nth-child(2) { --rand: 0.8; }
+        .elemento-decorativo:nth-child(3) { --rand: 0.1; }
+        .elemento-decorativo:nth-child(4) { --rand: 0.9; }
+
+        /* Confeti adaptado a Fast Food (Cuadrados gruesos) */
+        .confetti {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            z-index: 9999;
+            border: 2px solid var(--color-negro);
+            animation: confetti-fall 3s linear forwards;
         }
 
-        /* Ventana Emergente (Pop-up) */
+        @keyframes confetti-fall {
+            0% { transform: translateY(-50px) rotate(0deg); }
+            100% { transform: translateY(105vh) rotate(720deg); }
+        }
+
+        /* Ventana Emergente (Pop-up tipo ticket de compra) */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
+            background-color: rgba(17, 17, 17, 0.85);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s;
         }
 
         .modal-overlay.active {
@@ -289,89 +308,103 @@
         }
 
         .modal-content {
-            background-color: #000000;
-            color: #ffffff;
+            background-color: white;
+            color: var(--color-negro);
             padding: 3rem 2rem;
-            border-radius: 15px;
             text-align: center;
-            max-width: 500px;
+            max-width: 450px;
             width: 90%;
-            box-shadow: 0 0 25px rgba(255,255,255,0.1);
-            border: 2px solid #333;
+            border: var(--borde-grueso);
+            box-shadow: 15px 15px 0px var(--color-mostaza);
+            position: relative;
+            background-image: 
+                linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%); /* Simula ticket dentado arriba y abajo si lo ajustásemos, pero lo mantenemos limpio */
+        }
+
+        .modal-content h2 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            color: var(--color-ketchup);
+            text-transform: uppercase;
+            font-weight: 900;
         }
 
         .modal-content p {
             font-size: 1.3rem;
             font-weight: 700;
             margin: 0 0 2rem 0;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .btn-cerrar {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            background-color: white;
-            color: black;
+            font-weight: 900;
+            font-size: 1.2rem;
+            background-color: var(--color-negro);
+            color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
+            padding: 15px 30px;
             cursor: pointer;
             text-transform: uppercase;
+            transition: background 0.2s;
+        }
+
+        .btn-cerrar:hover {
+            background-color: var(--color-ketchup);
         }
     </style>
 </head>
 <body>
 
-    <div class="banderitas">
-        <div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div>
-        <div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div><div class="banderita"></div>
+    <div class="marquesina">
+        <div>🔥 100% PAELLA DE CALIDAD 🔥 DELIVERY RÁPIDO 🔥 EL MEJOR MOJITO DE LA CIUDAD 🔥 HAZ TU PEDIDO AHORA 🔥 CAMPEONES 2025 🔥</div>
     </div>
 
     <header>
-        <!-- Logo en contenedor cuadrado de 200x200px -->
         <div class="logo-container">
             <img src="Logo pedales ok.png" alt="Logo Los Pedales" class="logo-image">
         </div>
         <h1>Los Pedales</h1>
-        <span class="baseline">Campeones de peñas 2025</span>
+        <span class="baseline">Fast Paella Delivery</span>
     </header>
 
     <main>
         <section class="palmares-container">
+            <h2 class="palmares-titulo">🏆 Wall of Fame 🏆</h2>
             <ul class="palmares-list">
-                <li>Mejor paella 2024</li>
-                <li>Segunda mejor paella 2025</li>
-                <li>Segundo mejor mojito 2024</li>
-                <li>Mejor mojito 2025</li>
-                <li>Mejor tortilla de patata 2025</li>
+                <li><span>🥘</span> Mejor paella 2024</li>
+                <li><span>🔥</span> Segunda mejor paella 2025</li>
+                <li><span>🍹</span> Segundo mejor mojito 2024</li>
+                <li><span>🍋</span> Mejor mojito 2025</li>
+                <li><span>🍳</span> Mejor tortilla de patata 2025</li>
             </ul>
         </section>
 
         <section class="pedido-container">
-            <p class="pedido-titulo">¿Quieres hacer un pedido de prueba para degustar nuestra única e inimitable paella de marisco?</p>
-            <p class="pedido-descripcion">Escoge fecha y hora de entrega y uno de nuestros repartidores te entregará tu pedido para que puedas disfrutar de esta experiencia organoléptica</p>
+            <h2 class="pedido-titulo">¿Hambre de Paella?</h2>
+            <p class="pedido-descripcion">Pide ahora tu prueba de nuestra inimitable paella de marisco. Fast delivery garantizado para una experiencia organoléptica brutal.</p>
             
             <select class="selector-pedido" id="fechaEntrega">
-                <option value="unico">Jueves 20 de agosto, 14:40 h. Parque de los Alambraos</option>
+                <option value="unico">🛵 Jueves 20 de agosto, 14:40 h. (Parque Alambraos)</option>
             </select>
             
             <br>
-            <button class="btn-enviar" id="btnEnviar">ENVIAR MI PEDIDO</button>
+            <button class="btn-enviar" id="btnEnviar">¡PEDIR AHORA!</button>
         </section>
 
         <div class="decoracion-fiesta">
-            <div class="elemento-decorativo" title="Charanga">🎺</div>
-            <div class="elemento-decorativo" title="Tractor">🚜💐</div>
-            <div class="elemento-decorativo" title="Baturra">👑</div>
-            <div class="elemento-decorativo" title="Cerveza">🍻</div>
-            <div class="elemento-decorativo" title="Fuegos">🎆</div>
+            <div class="elemento-decorativo" title="Delivery">🛵</div>
+            <div class="elemento-decorativo" title="Paella">🥘</div>
+            <div class="elemento-decorativo" title="Bebida">🥤</div>
+            <div class="elemento-decorativo" title="Top Calidad">⭐</div>
         </div>
     </main>
 
     <div class="modal-overlay" id="modalPedido">
         <div class="modal-content">
-            <p>Muchas gracias! Entregaremos tu pedido de prueba en la fecha y dirección escogidos!</p>
-            <button class="btn-cerrar" id="btnCerrar">Cerrar</button>
+            <h2>¡Oído Cocina!</h2>
+            <p>Hemos recibido tu orden. Entregaremos tu pedido de prueba en la fecha y dirección escogidos. ¡Prepara los cubiertos!</p>
+            <button class="btn-cerrar" id="btnCerrar">CERRAR TICKET</button>
         </div>
     </div>
 
@@ -383,7 +416,7 @@
 
         function verificarPedidoRealizado() {
             if (localStorage.getItem('pedidoRealizado') === 'true') {
-                btnEnviar.innerText = '¡GRACIAS!';
+                btnEnviar.innerText = 'PEDIDO CONFIRMADO ✔️';
                 btnEnviar.disabled = true;
                 selector.disabled = true;
             }
@@ -391,34 +424,26 @@
 
         verificarPedidoRealizado();
 
-        // CORRECCIÓN: Función de Confeti vinculada al cuerpo de la pantalla (body)
+        // Confeti modificado con colores Fast Food (Kétchup, Mostaza, Blanco y Negro)
         function createConfetti() {
-            const numConfetti = 80; // Más cantidad para que sea espectacular
-            const colors = ['#ff4757', '#ffa502', '#2ed573', '#1e90ff', '#9b59b6'];
+            const numConfetti = 60; 
+            const colors = ['#FF2A2A', '#FFC300', '#FFFFFF', '#111111'];
 
             for (let i = 0; i < numConfetti; i++) {
                 const confetti = document.createElement('div');
                 confetti.classList.add('confetti');
                 
-                // Forma aleatoria (cuadrados y círculos)
-                if(Math.random() > 0.5) {
-                    confetti.style.borderRadius = '50%';
-                }
-
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                 
-                // Posición horizontal aleatoria por toda la pantalla
                 confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = '-20px'; // Empiezan justo arriba del todo
+                confetti.style.top = '-30px'; 
                 
-                // Retrasos y velocidades aleatorias para un efecto natural
-                confetti.style.animationDelay = Math.random() * 0.8 + 's';
-                confetti.style.width = (Math.random() * 8 + 8) + 'px';
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                confetti.style.width = (Math.random() * 15 + 10) + 'px';
                 confetti.style.height = confetti.style.width;
 
                 document.body.appendChild(confetti);
 
-                // Limpieza del código eliminando el confeti sobrante tras la animación
                 setTimeout(() => {
                     confetti.remove();
                 }, 3500);
@@ -428,13 +453,11 @@
         btnEnviar.addEventListener('click', () => {
             localStorage.setItem('pedidoRealizado', 'true');
             
-            // Disparar confeti corregido
             createConfetti();
 
-            // Retraso controlado para disfrutar del confeti antes del pop-up
             setTimeout(() => {
                 modal.classList.add('active');
-            }, 400);
+            }, 500);
             
             verificarPedidoRealizado();
         });
