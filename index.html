@@ -65,19 +65,23 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .logo-placeholder {
+        /* Contenedor del Logo Corregido */
+        .logo-container {
             width: 120px;
             height: 120px;
-            background-color: var(--color-secundario);
             border-radius: 50%;
             margin: 0 auto 1.5rem auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 0.9rem;
+            overflow: hidden; /* Mantiene la forma circular */
             border: 4px solid white;
             box-shadow: 0 0 20px rgba(255, 165, 2, 0.6);
+            background-color: var(--color-secundario); /* Fondo por si la imagen tarda en cargar */
+        }
+
+        /* Imagen del Logo */
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta la imagen sin deformarla */
         }
 
         header h1 {
@@ -199,6 +203,7 @@
             transition: all 0.2s;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative; /* Necesario para el confeti */
         }
 
         .btn-enviar:hover:not(:disabled) {
@@ -213,6 +218,28 @@
             cursor: not-allowed;
             box-shadow: none;
             transform: none;
+        }
+
+        /* Estilos para el Confeti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: confetti-fall 2s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translate(-50%, -100%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, 100vh) rotate(720deg);
+                opacity: 0;
+            }
         }
 
         /* Elementos Decorativos */
@@ -296,7 +323,9 @@
     </div>
 
     <header>
-        <div class="logo-placeholder">[ LOGO PEDALES ]</div>
+        <div class="logo-container">
+            <img src="Logo pedales.png" alt="Logo Los Pedales" class="logo-image">
+        </div>
         <h1>Los Pedales</h1>
         <span class="baseline">Campeones de peñas 2025</span>
     </header>
@@ -358,13 +387,34 @@
         // Comprobamos el estado nada más cargar la página
         verificarPedidoRealizado();
 
+        // Función para crear el Confeti
+        function createConfetti() {
+            const numConfetti = 50;
+            const colors = ['#ff4757', '#ffa502', '#2ed573', '#1e90ff', '#9b59b6'];
+
+            for (let i = 0; i < numConfetti; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = Math.random() * 50 + '%'; // Empieza un poco más arriba
+                confetti.style.animationDelay = Math.random() * 0.5 + 's'; // Retraso aleatorio
+                btnEnviar.appendChild(confetti); // Añade el confeti al botón
+            }
+        }
+
         // Al pulsar el botón ENVIAR
         btnEnviar.addEventListener('click', () => {
             // Guardamos en la memoria del navegador que ya ha pedido
             localStorage.setItem('pedidoRealizado', 'true');
             
-            // Mostramos el pop-up
-            modal.classList.add('active');
+            // Crea y anima el confeti
+            createConfetti();
+
+            // Mostramos el pop-up (después de un pequeño retraso para el confeti)
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 500);
             
             // Aplicamos los cambios visuales de bloqueo al botón inmediatamente
             verificarPedidoRealizado();
@@ -376,10 +426,4 @@
         });
 
         modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-            }
-        });
-    </script>
-</body>
-</html>
+            if (
